@@ -26,9 +26,13 @@ npm i --save-dev @types/styled-components
 ## Template
 
 <p align="center">
-    <img alt="objective" src=".github/cadastro.jpg" width="33%">
-    <img alt="objective" src=".github/home.jpg" width="33%">
-    <img alt="objective" src=".github/login.jpg" width="33%">
+    <img alt="objective" src=".github/cadastro.jpg" width="100%">
+</p>
+<p align="center">
+    <img alt="objective" src=".github/home.jpg" width="100%">
+</p>
+<p align="center">
+    <img alt="objective" src=".github/login.jpg" width="100%">
 </p>
 
 ## 🚀 Technologies
