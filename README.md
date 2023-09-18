@@ -30,10 +30,6 @@ npm i --save-dev @types/styled-components
     <img alt="objective" src=".github/home.jpg" width="33%">
     <img alt="objective" src=".github/login.jpg" width="33%">
 </p>
-<p align="center">
-    <img alt="objective" src=".github/facecadastro.jpg" width="35%">
-    <img alt="objective" src=".github/facelogin.jpg" width="35%">
-</p>
 
 ## 🚀 Technologies
 
