@@ -21,6 +21,8 @@
 npm install -D jest jest-environment-jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event
 npm i bootstrap react-boostrap
 npm i --save-dev @types/styled-components
+npm i axios
+npm i @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
 
 
 ## Template

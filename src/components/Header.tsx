@@ -9,6 +9,12 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+          <NavDropdown title="REACT 2023" id="basic-nav-dropdown">
+          <NavDropdown.Item  href="/monster-rolex">Monster Rolodex</NavDropdown.Item>
+             
+              {/* <NavDropdown.Divider /> */}
+            </NavDropdown>
+
           <NavDropdown title="UDEMY" id="basic-nav-dropdown">
           <NavDropdown.Item  href="/ola-mundo">Olá Mundo!</NavDropdown.Item>
               <NavDropdown.Item  href="/calculadora">Calculadora</NavDropdown.Item>

@@ -1,17 +1,60 @@
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
+import CalculadoraService from './__test__/calc.service';
 
 export default function Calculadora() {
 
+  const [calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] = CalculadoraService();
+
   const [txtNumeros, setTxtNumeros] = useState('0');
+  const [numero1, setNumero1] = useState('0');
+  const [numero2, setNumero2] = useState(null);
+  const [operacao, setOperacao] = useState(null);
 
   function addNum(numero: string){
-      setTxtNumeros(txtNumeros + numero);
+    let resultado;
+    if (operacao === null) {
+      resultado = concatenarNumero(numero1, numero);
+      setNumero1(resultado);
+    } else {
+      resultado = concatenarNumero(numero2, numero);
+      setNumero2(resultado);
+    }
+    setTxtNumeros(resultado);
   }
 
-  function defOperac(op:string){
-    setTxtNumeros(op)
+  function defOperac(op:string) {
+    // apenas define a operação caso ela não exista
+    if (operacao === null) {
+      setOperacao(op);
+      return;
+    }
+    // caso operação estiver definida e número 2 selecionado, realiza o cálculo da operação
+    if (numero2 !== null) {
+      const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao);
+      setOperacao(op);
+      setNumero1(resultado.toString());
+      setNumero2(null);
+      setTxtNumeros(resultado.toString());
+    }
   }
+
+  function acaoCalcular() {
+    if (numero2 === null) {
+      return;
+    }
+    const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao);
+    setTxtNumeros(resultado);
+  }
+
+  function limpar() {
+    setTxtNumeros('0');
+    setNumero1('0');
+    setNumero2(null);
+    setOperacao(null);
+  }
+
+
   return (
     <>
       <header>
@@ -34,10 +77,10 @@ export default function Calculadora() {
       <Container>
       <Row>
           <Col xs="3">
-            <Button className="h-60 w-60" variant="danger">C</Button>
+            <Button className="h-60 w-60 " variant="danger" onClick={limpar}>C</Button>
           </Col>
           <Col xs="9">
-            <Form.Control className="h-60 w-100" type="text" 
+            <Form.Control className="h-60 w-100 text-right " type="text" 
             name="txtNumeros" 
             value={txtNumeros}
             readOnly/>
@@ -58,7 +101,7 @@ export default function Calculadora() {
           </Col>
           <Col>
             <Button style={{width:"70px", height:"50px"}} variant="warning"
-            onClick={() => defOperac('/')}>/</Button>
+            onClick={() => defOperac(DIVISAO)}>/</Button>
           </Col>
         </Row>
         <Row style={{paddingTop:"10px"}}>
@@ -76,7 +119,7 @@ export default function Calculadora() {
           </Col>
           <Col>
             <Button style={{width:"70px", height:"50px"}} variant="warning"
-            onClick={() => defOperac('*')}>*</Button>
+            onClick={() => defOperac(MULTIPLICACAO)}>*</Button>
           </Col>
         </Row>
         <Row style={{paddingTop:"10px"}}>
@@ -94,7 +137,7 @@ export default function Calculadora() {
           </Col>
           <Col>
             <Button style={{width:"70px", height:"50px"}} variant="warning"
-            onClick={() => defOperac('-')}>-</Button>
+            onClick={() => defOperac(SUBTRACAO)}>-</Button>
           </Col>
         </Row>
         <Row style={{paddingTop:"10px"}}>
@@ -103,14 +146,14 @@ export default function Calculadora() {
             onClick={() => addNum('0')}>0</Button>
           </Col>
           <Col>
-            <Button className="h-60 w-0" variant="light">.</Button>
+            <Button className="h-60 w-0" variant="light" onClick={() => addNum('.')}>.</Button>
           </Col>
           <Col>
-            <Button className="h-60 w-60" variant="success">=</Button>
+            <Button className="h-60 w-60" variant="success" onClick={acaoCalcular}>=</Button>
           </Col>
           <Col>
             <Button style={{width:"70px", height:"50px"}} variant="warning"
-            onClick={() => defOperac('+')}>+</Button>
+            onClick={() => defOperac(SOMA)}>+</Button>
           </Col>
         </Row>
       </Container>

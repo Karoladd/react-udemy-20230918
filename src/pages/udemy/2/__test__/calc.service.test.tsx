@@ -1,10 +1,11 @@
-import React from "react"; 
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import CalcService from "./calc.service";
+import CalculadoraService from "./calc.service";
 
 describe("Teste CalculadoraService", () => {
-  const [calcular] = CalcService();
+  
+  const [calcular, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] = CalculadoraService();
 
   it("deve garantir que 1 + 4 = 5", () => {
     let soma = calcular(1, 4, "+");

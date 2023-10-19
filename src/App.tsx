@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Component } from 'react'
 import reactLogo from './assets/react.svg'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,35 +17,40 @@ import GerencApiRest from './pages/udemy/5/GerencApiRest'
 import Dashboard from './pages/udemy/6/Dashboard'
 import MiniEcom from './pages/udemy/7/MiniEcom'
 import UpImg from './pages/udemy/8/UpImg'
-
+import ListarTarefas from'./pages/udemy/4/pages/ListarTarefas'
+import MonsterRolex from'./pages/react2023/MonsterRolex'
 
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-function App() {
-  return (
-    <Router>
-    <Header/>
-       <main>
-        <Container>
-            <Routes>
-            <Route path='/' exact element={<Home />}/>
-            <Route path='/signup' element={<Signup />}/>
-            <Route path='/login' element={<Login />}/>
-            <Route path='/camLogin' element={<CamLogin />}/>
-            <Route path='/ola-mundo' element={<OlaMundo />}/>
-            <Route path='/calculadora' element={<Calculadora />}/>
-            <Route path='/conversor-moedas' element={<ConvMoedas />}/>
-            <Route path='/gerenciador-tarefas' element={<GerencTarefas />}/>
-            <Route path='/gerenciador-api-rest' element={<GerencApiRest />}/>
-            <Route path='/dashboard' element={<Dashboard />}/>
-            <Route path='/mini-ecomerce' element={<MiniEcom />}/>
-            <Route path='/upload-imagem' element={<UpImg />}/>
-            </Routes>
-          </Container>
-        </main>
-    <Footer/>
-    </Router>
-  )
+class App extends Component {
+  render(){
+    return (
+      <Router>
+      <Header/>
+         <main>
+          <Container>
+              <Routes>
+              <Route path='/' exact element={<Home />}/>
+              <Route path='/signup' element={<Signup />}/>
+              <Route path='/login' element={<Login />}/>
+              <Route path='/camLogin' element={<CamLogin />}/>
+              <Route path='/ola-mundo' element={<OlaMundo />}/>
+              <Route path='/calculadora' element={<Calculadora />}/>
+              <Route path='/conversor-moedas' element={<ConvMoedas />}/>
+              <Route path='/gerenciador-tarefas/*' element={<GerencTarefas />}/>
+              <Route path='/gerenciador-api-rest' element={<GerencApiRest />}/>
+              <Route path='/dashboard' element={<Dashboard />}/>
+              <Route path='/mini-ecomerce' element={<MiniEcom />}/>
+              <Route path='/upload-imagem' element={<UpImg />}/>
+              <Route path='/monster-rolex' element={<MonsterRolex />}/>
+              </Routes>
+            </Container>
+          </main>
+      <Footer/>
+      </Router>
+    )
+  }
+ 
 }
 
 export default App
