@@ -30,10 +30,8 @@ const Header = () => {
               <NavDropdown.Item  href="/upload-imagem">Upload Imagem</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-
             <Nav.Link href="/signup">Registrar</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
-            
           </Nav>
         </Navbar.Collapse>
       </Container>
