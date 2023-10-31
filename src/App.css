@@ -2,3 +2,7 @@ main {
     margin-top:3rem;
     height: 75vh;
 }
+
+.hidden{
+    display: none;
+}

@@ -34,6 +34,7 @@ export default function GerencTarefas(){
       let listaTarefas: Tarefa[] = tarefasDb ? JSON.parse(tarefasDb) : [];
 
       // Filtrar
+      console.log(listaTarefas)
       listaTarefas = listaTarefas.filter(
         (t: Tarefa) => t.descricao.toLowerCase().indexOf(filtroTarefa.toLowerCase()) === 0
       );
@@ -56,6 +57,7 @@ export default function GerencTarefas(){
 
     if (carregarTarefas) {
       obterTarefas();
+
       setCarregarTarefas(false);
     }
   }, [carregarTarefas, paginaAtual, ordenarAsc, ordenarDesc, filtroTarefa]);
@@ -89,9 +91,7 @@ export default function GerencTarefas(){
   return (
     <div>
       <h1>Gerenciador de Tarefas</h1>
-      <div className="text-center">
-      <h3>Tarefas a fazer</h3>
-
+      <div className="text-center pt-5">
       <Table striped bordered hover responsive data-testid="tabela">
         <thead>
           <tr>
@@ -137,12 +137,10 @@ export default function GerencTarefas(){
         itemsPorPagina={ITENS_POR_PAG}
         paginaAtual={paginaAtual}
         mudarPagina={handleMudarPagina} />
-
       </div>
       <Routes>
         <Route path="criarTarefa" element={<CriarTarefa />}/>
-        <Route path='atualizarTarefa/:id/*' element={<AtualizarTarefa />}/>
-        
+        <Route path='atualizar/:id*' element={<AtualizarTarefa />}/>
       </Routes>
     </div>
   )

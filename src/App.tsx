@@ -46,7 +46,7 @@ class App extends Component {
               </Routes>
             </Container>
           </main>
-      <Footer/>
+          <Footer/>
       </Router>
     )
   }

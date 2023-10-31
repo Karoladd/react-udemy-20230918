@@ -5,7 +5,7 @@ import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface Tarefa {
   id: number;
-  nome: string;
+  descricao: string;
   concluida: boolean;
 }
 
@@ -54,7 +54,7 @@ const ConcluirTarefa: FunctionComponent<ConcluirTarefaProps> = (props) => {
         <Modal.Body>
           Deseja realmente concluir a seguinte tarefa?
           <br />
-          <strong>{props.tarefa.nome}</strong>
+          <strong>{props.tarefa.descricao}</strong>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleConcluirTarefa} data-testid="btn-concluir">

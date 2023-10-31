@@ -42,7 +42,7 @@ export default function CriarTarefa(){
 
   return (
     <div>
-      <h3 className="text-center pt-5 pb-5">Criar Tarefa</h3>
+      <h3 className="text-center pt-3 pb-5"></h3>
       <div style={{
         padding: '20px 20px 10px',
         backgroundColor: '#bab3b3',

@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 interface Tarefa {
   id: number;
-  nome: string;
+  descricao: string;
 }
 
 interface Props {
@@ -53,7 +53,7 @@ function RemoverTarefa(props: Props) {
         <Modal.Body>
           Deseja realmente remover a seguinte tarefa?
           <br />
-          <strong>{props.tarefa.nome}</strong>
+          <strong>{props.tarefa.descricao}</strong>
         </Modal.Body>
         <Modal.Footer>
           <Button

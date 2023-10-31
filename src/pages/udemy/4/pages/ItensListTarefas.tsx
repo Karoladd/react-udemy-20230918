@@ -8,7 +8,7 @@ import RemoverTarefa from './RemoverTarefa';
 
 interface Tarefa {
   id: number;
-  nome: string;
+  descricao: string;
   concluida: boolean;
 }
 
@@ -30,7 +30,7 @@ const ItensListaTarefas: React.FC<ItensListaTarefasProps> = (props) => {
           data-testid="nome-tarefa"
           style={{ textDecoration: marcarConcluida(tarefa) }}
         >
-          {tarefa.nome}
+          {tarefa.descricao}
         </td>
         <td className="text-right">
           <ConcluirTarefa
@@ -39,7 +39,7 @@ const ItensListaTarefas: React.FC<ItensListaTarefasProps> = (props) => {
             className={tarefa.concluida ? 'hidden' : undefined}
           />
           &nbsp;
-          <a href={`/atualizar/${tarefa.id}`} className={tarefa.concluida ? 'hidden' : 'btn btn-warning btn-sm'}>
+          <a href={`/gerenciador-tarefas/atualizar/${tarefa.id}`} className={tarefa.concluida ? 'hidden' : 'btn btn-warning btn-sm'}>
             <FontAwesomeIcon icon={faEdit} />
           </a>
           &nbsp;
